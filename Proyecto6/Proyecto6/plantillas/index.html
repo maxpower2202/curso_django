@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hola Mundo!</h1>
+    <p>este es el video 7 y la segunda plantilla, puedo poner mi nombre como: {{nombre_persona.upper}} {{apellido_persona.upper}}</p>
+    <p>hoy es el d&iacute;a: {{hora.day}} / {{hora.month}} / {{hora.year}} </p>
+    <p>y la hora es: {{hora.hour}}:{{hora.minute}}</p>
+    <h2>Temas del Curso: </h2>
+    <ul>{% if temas %} 
+            {% for tema in temas %}
+                <li>{{tema}}</li>
+            {% endfor %}
+        {% else %}
+            <p>No hay elementos que mostrar</p>
+        {% endif %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hola Mundo!</h1>
+    {# comentario de linea unica #}
+    {% if nombre_persona == 'Profesor Maximiliano' %}
+        <p>El curso lo imparte el profesor titular</p>
+    {% else %}
+        <p>El curso lo imparte el profeosr suplente</p>
+    {% endif %} <!-- No se recomienda utilizar estructuras de control aqui, el objetivo de django es separar la logica del diseño -->
+
+    {% comment %}
+        comentario
+        de
+        multiple
+        linea
+    {% endcomment %}
+    <p>este es el video 8 y la segunda plantilla, puedo poner mi nombre como: {{nombre_persona.upper}} {{apellido_persona.upper}}</p> {# el .upper tambien se podria haber aplicado con el simbolo | que se llama pipper para aplicarlo como si puera un filtro}
+    <p>hoy es el d&iacute;a: {{hora.day}} / {{hora.month}} / {{hora.year}} </p>
+    <p>y la hora es: {{hora.hour}}:{{hora.minute}}</p>
+    <h2>Temas del Curso: </h2>
+    <ul>{% if temas %} 
+            {% for tema in temas %}
+                <li>{{tema|first|lower}}</li> {# lo bueno de los fitros es que se pueden encadenar, first muestra la primera letra y lower transforma a minusculas #}
+            {% endfor %}
+        {% else %}
+            <p>No hay elementos que mostrar</p>
+        {% endif %}
+    </ul>
+</body>
+</html>
